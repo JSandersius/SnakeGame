@@ -117,21 +117,8 @@
                     ctx.fillStyle = FOOD_COLOUR;
                     ctx.strokestyle = FOOD_BORDER_COLOUR;
                     ctx.fillRect(foodX, foodY, 10, 10);
-                    ctx.strokeRect(foodX, foodY, 10, 10)
+                    ctx.strokeRect(foodX, foodY, 10, 10);
                 }
-
-                //to test how out advanceSnake func works, we can temporarily call it before the drawSnake func
-                //move on step to the right 
-                advanceSnake()
-                //change vertical velocity to 0 
-                dx = 0;
-                //change horizonal velocity to 10
-                dy = -10;
-                //move one step up
-                advanceSnake();
-                //draw snake on canveas
-                drawSnake();
-
 
                 // * Advances the snake by changing the x-coordinates of its parts
                 // * according to the horizontal velocity and the y - coordinates of its parts
