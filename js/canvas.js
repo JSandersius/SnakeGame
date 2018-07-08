@@ -36,4 +36,4 @@ ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
 // Draw a border around the entire canvas
 ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
 
-drawSnake();
+//drawSnake();
