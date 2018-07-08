@@ -154,6 +154,20 @@
                     return Math.round((Math.random() * (max - min) + min) / 10) * 10;
                 }
 
+                //Creates ransom set of coordinates for the snake food. 
+
+                function createFood() {
+                    //generate a random number the food x-coordinate
+                    foodX = randomTen(0, gameCanvas.width - 10);
+                    //generate a random number the food y-coordinate
+                    foodY = randomTen(0, gameCanvas.width - 10);
+
+                    //if the new food location is where the snake property currently is, generate a new location
+                    snake.forEach(function isOnSnake(part) {
+                        if (part.x == foodX && part.y == foodY) createFood();
+                    });
+                }
+
 
 
                 //CREATING AND DRAWING THE SNAKE  
