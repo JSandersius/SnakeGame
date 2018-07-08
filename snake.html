@@ -14,7 +14,6 @@
         <canvas>
 
             <script>
-
                 //Constants//
                 const CANVAS_BORDER_COLOUR = 'black';
                 const CANVAS_BACKGROUND_COLOUR = 'white';
@@ -49,32 +48,42 @@
 
                 //select the color to fill the canvas
                 ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
-
                 //select the colour for the border of the canvas
                 ctx.strokestyle = CANVAS_BORDER_COLOUR;
+
 
                 // Draw a "filled" rectangle to cover the entire canvas
                 ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
                 // Draw a border around the entire canvas
                 ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
 
+
+
                 //to test how out advanceSnake func works, we can temporarily call it before the drawSnake func
                 //move on step to the right 
                 advanceSnake()
-
                 //change vertical velocity to 0 
                 dx = 0;
                 //change horizonal velocity to 10
                 dy = -10;
-
                 //move one step up
                 advanceSnake();
-
                 //draw snake on canveas
                 drawSnake();
+
+
+                // * Advances the snake by changing the x-coordinates of its parts
+                // * according to the horizontal velocity and the y - coordinates of its parts
+                //  * according to the vertical veolocity
+                function advanceSnake() {
+                    const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+                    snake.unshift(head);
+                    snake.pop();
+                }
+
+
                 //CREATING AND DRAWING THE SNAKE  
                 // to display the snake on the canvas, we can write a function to draw a rectangle for each pair of coordinates
-
                 function drawSnake() {
                     //loop through the snake parts drawing each part on canvas
                     snake.forEach(drawSnakePart)
@@ -83,7 +92,6 @@
                 //Draws a part of the snake on canvas
                 //@param object snakePart - coordinates where tha part should be drawn
                 function drawSnakePart(snakePart) {
-
                     //set the color of the snake 
                     ctx.fillStyle = SNAKE_COLOUR;
 
@@ -97,55 +105,6 @@
                     //Draw a border around the snake
                     ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
                 }
-
-                //NOW LETS ENABLE THE SNAKE TO MOVE HORIZONTALLY
-
-                let snake = [
-                    { x: 150, y: 150 },
-                    { x: 140, y: 150 },
-                    { x: 130, y: 150 },
-                    { x: 120, y: 150 },
-                    { x: 110, y: 150 },
-                ]
-
-                let nextSnake = [
-                    { x: 150, y: 150 },
-                    { x: 140, y: 150 },
-                    { x: 130, y: 150 },
-                    { x: 120, y: 150 },
-                    { x: 110, y: 150 },
-                ]
-
-
-                //first we created a new head for the snake, we then add a new head to the beginning
-                //of the snake using unshift and remove the last element of the snake using pop
-                //this way all the other snake parts shift into place as shown here
-
-                function advanceSnake() {
-                    const head = {
-                        x: snake[0].x + dx, y:
-                            snake[0].y
-                    };
-
-                    snake.unshift(head);
-
-                    snake.pop();
-                }
-
-                //ENABLING snake to move vertically
-                // to move it up and down, we can alter the y-coordinate of the head
-                //decreasing is by 10px will move it donwn and increasing will move it up
-                //due the the way we wrote advanceSnake func, this is easy to do 
-                //in advanceSnake, updating the head also increases the y-coordinate of the head by dy 
-
-                const head = {
-                    x: snake[0].x + dx, y:
-                        snake[0].y + dy
-                };
-
-
-
-
             </script>
 
 </body>
