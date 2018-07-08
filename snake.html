@@ -98,6 +98,50 @@
                 ]
 
 
+                //first we created a new head for the snake, we then add a new head to the beginning
+                //of the snake using unshift and remove the last element of the snake using pop
+                //this way all the other snake parts shift into place as shown here
+
+                function advanceSnake() {
+                    const head = {
+                        x: snake[0].x + dx, y:
+                            snake[0].y
+                    };
+
+                    snake.unshift(head);
+
+                    snake.pop();
+                }
+
+                //ENABLING snake to move vertically
+                // to move it up and down, we can alter the y-coordinate of the head
+                //decreasing is by 10px will move it donwn and increasing will move it up
+                //due the the way we wrote advanceSnake func, this is easy to do 
+                //in advanceSnake, updating the head also increases the y-coordinate of the head by dy 
+
+                const head = {
+                    x: snake[0].x + dx, y:
+                        snake[0].y + dy
+                };
+
+                //to test how out advanceSnake func works, we can temporarily call it before the drawSnake func
+
+                //move on step to the right 
+                advanceSnake()
+
+                //change vertical velocity to 0 
+                dx = 0;
+                //change horizonal velocity to 10
+                dy = -10;
+
+                //move one step up
+                advanceSnake();
+
+                //draw snake on canveas
+                drawSnake();
+
+
+
 
             </script>
 
