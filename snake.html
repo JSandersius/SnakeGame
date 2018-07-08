@@ -41,10 +41,10 @@
 
 
 
-                // First we get the canvas element using the id gameCanvas we specified earlier. 
+                //Get the canvas element using the id gameCanvas we specified earlier. 
                 var gameCanvas = document.getElementById('gameCanvas');
 
-                //We then get the canvas “2d” context, which means we will be drawing into 2D space.
+                //then return the canvas “2d” context, which means we will be drawing into 2D space.
                 var ctx = gameCanvas.getContext('2d');
 
                 //select the color to fill the canvas
@@ -55,10 +55,22 @@
 
                 // Draw a "filled" rectangle to cover the entire canvas
                 ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
-
                 // Draw a border around the entire canvas
                 ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
 
+                //to test how out advanceSnake func works, we can temporarily call it before the drawSnake func
+                //move on step to the right 
+                advanceSnake()
+
+                //change vertical velocity to 0 
+                dx = 0;
+                //change horizonal velocity to 10
+                dy = -10;
+
+                //move one step up
+                advanceSnake();
+
+                //draw snake on canveas
                 drawSnake();
                 //CREATING AND DRAWING THE SNAKE  
                 // to display the snake on the canvas, we can write a function to draw a rectangle for each pair of coordinates
@@ -130,22 +142,6 @@
                     x: snake[0].x + dx, y:
                         snake[0].y + dy
                 };
-
-                //to test how out advanceSnake func works, we can temporarily call it before the drawSnake func
-
-                //move on step to the right 
-                advanceSnake()
-
-                //change vertical velocity to 0 
-                dx = 0;
-                //change horizonal velocity to 10
-                dy = -10;
-
-                //move one step up
-                advanceSnake();
-
-                //draw snake on canveas
-                drawSnake();
 
 
 
