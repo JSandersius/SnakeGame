@@ -18,8 +18,8 @@
                 //Constants//
                 const CANVAS_BORDER_COLOUR = 'black';
                 const CANVAS_BACKGROUND_COLOUR = 'white';
-                const SNAKE_BORDER_COLOUR = 'darkgreen';
                 const SNAKE_COLOUR = 'lightgreen';
+                const SNAKE_BORDER_COLOUR = 'darkgreen';
 
 
                 //for snake to work, we need to know the location of it
@@ -32,7 +32,14 @@
                     { x: 130, y: 150 },
                     { x: 120, y: 150 },
                     { x: 110, y: 150 },
-                ];
+                ]
+
+                // Horizonal velocity
+                let dx = 10;
+                //vertivcal valocity
+                let dy = 0;
+
+
 
                 // First we get the canvas element using the id gameCanvas we specified earlier. 
                 var gameCanvas = document.getElementById('gameCanvas');
