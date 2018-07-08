@@ -46,18 +46,19 @@
                 //then return the canvas “2d” context, which means we will be drawing into 2D space.
                 var ctx = gameCanvas.getContext('2d');
 
-                //select the color to fill the canvas
-                ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
-                //select the colour for the border of the canvas
-                ctx.strokestyle = CANVAS_BORDER_COLOUR;
+                //BEFORE we move on, lets refactor the code to draw the canvas inside a function
 
+                function clearCanvas() {
+                    //select the color to fill the canvas
+                    ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
+                    //select the colour for the border of the canvas
+                    ctx.strokestyle = CANVAS_BORDER_COLOUR;
 
-                // Draw a "filled" rectangle to cover the entire canvas
-                ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
-                // Draw a border around the entire canvas
-                ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
-
-
+                    // Draw a "filled" rectangle to cover the entire canvas
+                    ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+                    // Draw a border around the entire canvas
+                    ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
+                }
 
                 //to test how out advanceSnake func works, we can temporarily call it before the drawSnake func
                 //move on step to the right 
@@ -105,6 +106,7 @@
                     //Draw a border around the snake
                     ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
                 }
+
             </script>
 
 </body>
