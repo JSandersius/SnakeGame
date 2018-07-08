@@ -121,14 +121,39 @@
                 }
 
 
-                // * Advances the snake by changing the x-coordinates of its parts
+                // * ADVANCES the snake by changing the x-coordinates of its parts
                 // * according to the horizontal velocity and the y - coordinates of its parts
                 //  * according to the vertical veolocity
                 function advanceSnake() {
+                    //creates the new snakes head
                     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+                    // add the new head to the beginning of snake body
                     snake.unshift(head);
-                    snake.pop();
+
+
+                    const didEatFood = snake[0].x === foodX && snake[0].y === foodY;
+                    if (didEatFood) {
+                        //increase score
+                        score += 10;
+                        //display score on screen
+                        document.getElementById('score').innerHTML = score;
+
+                        //Generate new food location
+                        createFood();
+                    } else {
+                        //remove the last part of the body
+                        snake.pop();
+                    }
                 }
+
+                //Generates a random number that is a multiple of 10 given a minimum and a maximum number
+                // @param   number  min - minimum number the radnom number can be   
+                // @param   number  min - minimum number the radnom number can be 
+
+                function randomTen(min, max) {
+                    return Math.round((Math.random() * (max - min) + min) / 10) * 10;
+                }
+
 
 
                 //CREATING AND DRAWING THE SNAKE  
