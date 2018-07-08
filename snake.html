@@ -99,7 +99,7 @@
 
                 //returns trun of the head of the snake touched another part of the game or any of the walls
                 function didGameEnd() {
-                    for (let i = 4; i < snake.length; i++ {
+                    for (let i = 4; i < snake.length; i++) {
                         const didCollide = snake[i].x === snake[0].x && snake[i].y === snake[0].y
                         if (didCollide) return true
                     }
@@ -119,7 +119,6 @@
                     ctx.fillRect(foodX, foodY, 10, 10);
                     ctx.strokeRect(foodX, foodY, 10, 10);
                 }
-
 
                 // * ADVANCES the snake by changing the x-coordinates of its parts
                 // * according to the horizontal velocity and the y - coordinates of its parts
@@ -229,9 +228,7 @@
                         dx = 0;
                         dy = 10;
                     }
-
                 }
-
             </script>
 
 </body>

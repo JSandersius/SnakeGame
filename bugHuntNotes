@@ -1,0 +1,28 @@
+Making sense of the bug
+Let’s break down what happens step by step.
+
+Snake is moving to the left
+
+Horizontal velocity, dx is equal to -10
+main function is called
+advanceSnake is called which advances the snake -10px to the left.
+The player presses the down arrow key
+
+changeDirection is called
+keyPressed === DOWN_KEY && dy !goingUp evaluates to true
+dx changes to 0
+dy changes to +10
+Player immediately presses the right arrow (before 100ms have lapsed)
+
+changeDirection is called
+keyPressed === RIGHT_KEY && !goingLeft evaluates to true
+dx changes to +10
+dy changes to 0
+The game ends
+
+main function is called after 100ms have lapsed.
+advanceSnake is called which advances the snake 10px to the right.
+const didCollide = snake[i].x === snake[0].x && snake[i].y === snake[0].y evaluates to true
+didGameEnd returns true
+main function returns early
+The game ends
