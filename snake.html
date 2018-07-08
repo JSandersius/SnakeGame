@@ -12,77 +12,9 @@
     <canvas id="gameCanvas" width="300" height="300">
         <canvas>
 
-
-            <script>
-
-                //Contants//
-                const CANVAS_BORDER_COLOUR = 'black';
-                const CANVAS_BACKGROUND_COLOUR = 'white';
-                const SNAKE_BORDER_COLOUR = 'darkgreen';
-                const SNAKE_COLOUR = 'lightgreen';
-
-
-                //for snake to work, we need to know the location of it
-                //to do this, we can represent the snake as an array of coordinates
-                //to create a snake in the middle of the canvas 150,150 
-
-                let snake = [
-                    { x: 150, y: 150 },
-                    { x: 140, y: 150 },
-                    { x: 130, y: 150 },
-                    { x: 120, y: 150 },
-                    { x: 110, y: 150 },
-                ];
-
-                // First we get the canvas element using the id gameCanvas we specified earlier. 
-                var gameCanvas = document.getElementById('gameCanvas');
-
-                //We then get the canvas “2d” context, which means we will be drawing into 2D space.
-                var ctx = gameCanvas.getContext('2d');
-
-                //select the color to fill the canvas
-                ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
-
-                //select the colour for the border of the canvas
-                ctx.strokestyle = CANVAS_BORDER_COLOUR;
-
-                // Draw a "filled" rectangle to cover the entire canvas
-                ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
-
-                // Draw a border around the entire canvas
-                ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
-
-                drawSnake();
-
-                //CREATING AND DRAWING THE SNAKE  
-                // to display the snake on the canvas, we can write a function to draw a rectangle for each pair of coordinates
-
-                function drawSnake() {
-                    //loop through the snake parts drawing each part on canvas
-                    snake.forEach(drawSnakePart)
-                }
-
-                //Draws a part of the snake on canvas
-                //@param object snakePart - coordinates where tha part should be drawn
-                function drawSnakePart(snakePart) {
-
-                    //set the color of the snake 
-                    ctx.fillStyle = SNAKE_COLOUR;
-
-                    //set the border colour of the snake 
-                    ctx.strokeStyle = SNAKE_BORDER_COLOUR;
-
-                    //Draw  filled rectangle to represent the snake a the coordinates
-                    // the part is located
-                    ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
-
-                    //Draw a border around the snake
-                    ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
-                }
-
-                //now we create another functions that prints the parts on the canvas. 
-            </script>
-
+            <script type="text/javascript" src="/SnakeGame/js/canvas.js"></script>
+            <script type="text/javascript" src="/js/snake.js"></script>
+            <script type="text/javascript" src="/js/snakeMove.js"></script>
 
 </body>
 
