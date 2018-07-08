@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Snake Game</title>
-
 </head>
 
 <body>
+    <div id="score">0</div>
+
     <canvas id="gameCanvas" width="300" height="300">
         <canvas>
 
@@ -19,6 +20,8 @@
                 const CANVAS_BACKGROUND_COLOUR = 'white';
                 const SNAKE_COLOUR = 'lightgreen';
                 const SNAKE_BORDER_COLOUR = 'darkgreen';
+                const FOOD_COLOUR = 'red';
+                const FOOD_BORDER_COLOUR = 'darkred';
 
 
                 //for snake to work, we need to know the location of it
@@ -33,6 +36,9 @@
                     { x: 110, y: 150 },
                 ]
 
+                //the users score
+                let score = 0;
+
                 // Horizonal velocity
                 let dx = 10;
                 //vertivcal valocity
@@ -42,18 +48,15 @@
 
                 //Get the canvas element using the id gameCanvas we specified earlier. 
                 var gameCanvas = document.getElementById('gameCanvas');
-
                 //then return the canvas “2d” context, which means we will be drawing into 2D space.
                 var ctx = gameCanvas.getContext('2d');
 
                 //BEFORE we move on, lets refactor the code to draw the canvas inside a function
-
                 function clearCanvas() {
                     //select the color to fill the canvas
                     ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
                     //select the colour for the border of the canvas
                     ctx.strokestyle = CANVAS_BORDER_COLOUR;
-
                     // Draw a "filled" rectangle to cover the entire canvas
                     ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
                     // Draw a border around the entire canvas
