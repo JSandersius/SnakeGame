@@ -152,7 +152,7 @@
         }
     }
 
-    //returns trun of the head of the snake touched another part of the game or any of the walls
+    //returns true of the head of the snake touched another part of the game or any of the walls
     function didGameEnd() {
         for (let i = 4; i < snake.length; i++) {
             const didCollide = snake[i].x === snake[0].x && snake[i].y === snake[0].y
@@ -176,7 +176,6 @@
     }
 
     //Creates ransom set of coordinates for the snake food. 
-
     function createFood() {
         //generate a random number the food x-coordinate
         foodX = randomTen(0, gameCanvas.width - 10);
@@ -184,8 +183,9 @@
         foodY = randomTen(0, gameCanvas.width - 10);
 
         //if the new food location is where the snake property currently is, generate a new location
-        snake.forEach(function isOnSnake(part) {
-            if (part.x == foodX && part.y == foodY) createFood();
+        snake.forEach(function isFoodOnSnake(part) {
+            const foodIsOnSnake = part.x == foodX && part.y == foodY;
+            if (foodIsOnSnake) createFood();
         });
     }
 
