@@ -1,2 +1,13 @@
 “Code refactoring is the process of restructuring existing computer code, 
 without changing its external behaviour.” 
+
+
+deleted code --> right after led dy = 0; 
+
+ ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
+    //select the colour for the border of the canvas
+    ctx.strokestyle = CANVAS_BORDER_COLOUR;
+    // Draw a "filled" rectangle to cover the entire canvas
+    ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+    // Draw a border around the entire canvas
+    ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
