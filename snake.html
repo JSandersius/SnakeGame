@@ -153,13 +153,12 @@
         const hitRightWall = snake[0].x > gameCanvas.width - 10;
         const hitTopWall = snake[0].y < 0;
         const hitBottomWall = snake[0].y > gameCanvas.height - 10;
-
         return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall
     }
 
     //Generates a random number that is a multiple of 10 given a minimum and a maximum number
-    // @param   number  min - minimum number the radnom number can be   
-    // @param   number  min - minimum number the radnom number can be 
+    // @param  { number } min - minimum number the radnom number can be   
+    // @param  { number } min - minimum number the radnom number can be 
 
     function randomTen(min, max) {
         return Math.round((Math.random() * (max - min) + min) / 10) * 10;
@@ -171,7 +170,6 @@
         foodX = randomTen(0, gameCanvas.width - 10);
         //generate a random number the food y-coordinate
         foodY = randomTen(0, gameCanvas.width - 10);
-
         //if the new food location is where the snake property currently is, generate a new location
         snake.forEach(function isFoodOnSnake(part) {
             const foodIsOnSnake = part.x == foodX && part.y == foodY;
@@ -187,18 +185,15 @@
     }
 
     //Draws a part of the snake on canvas
-    //@param object snakePart - coordinates where tha part should be drawn
+    //@param { object } snakePart - coordinates where tha part should be drawn
     function drawSnakePart(snakePart) {
         //set the color of the snake 
         ctx.fillStyle = SNAKE_COLOUR;
-
         //set the border colour of the snake 
         ctx.strokeStyle = SNAKE_BORDER_COLOUR;
-
         //Draw  filled rectangle to represent the snake a the coordinates
         // the part is located
         ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
-
         //Draw a border around the snake
         ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
     }
@@ -222,16 +217,13 @@
          */
 
         if (changeDirection) return;
-
         changeDirection = true;
 
         const keyPressed = event.keyCode;
-
         const goingUp = dy === -10;
         const goingDown = dy === 10;
         const goingRight = dx === 10;
         const goingLeft = dx === -10;
-
         if (keyPressed === LEFT_KEY && !goingRight) {
             dx = -10;
             dy = 0;
@@ -252,8 +244,6 @@
             dy = 10;
         }
     }
-
-
 </script>
 
 </html>
