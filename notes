@@ -11,3 +11,8 @@ deleted code --> right after led dy = 0;
     ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
     // Draw a border around the entire canvas
     ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
+
+
+
+source URL 
+    https://medium.freecodecamp.org/think-like-a-programmer-how-to-build-snake-using-only-javascript-html-and-css-7b1479c3339e
