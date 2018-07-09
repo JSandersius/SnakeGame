@@ -1,0 +1,119 @@
+<script>
+    //Constants//
+
+
+    //for snake to work, we need to know the location of it
+    //to do this, we can represent the snake as an array of coordinates
+    //to create a snake in the middle of the canvas 150,150 
+
+
+    //the users score
+
+    //when set to true the snake is chaning direction
+
+    //food x coordinate
+
+    //food y coordinate
+
+    // Horizonal velocity
+
+    //vertivcal valocity
+
+    //Get the canvas element using the id gameCanvas we specified earlier. 
+
+    //then return the canvas “2d” context, which means we will be drawing into 2D space.
+
+    //START GAME
+
+    //create the first food location 
+
+    //call changeDirection whenever the key is pressed 
+
+    //* Main function of the game
+    //* called repeatedly to advance the game
+
+        //if the game ended return early to stop game 
+
+
+    //Change the background coloe of the canvas to CANVAS_BACGROUND and 
+    //draw a border around it
+    //
+
+        //select the color to fill the canvas
+
+        //select the colour for the border of the canvas
+
+        // Draw a "filled" rectangle to cover the entire canvas
+
+        // Draw a border around the entire canvas
+
+    //DRAW FOOD ON CANVAS
+
+    // * ADVANCES the snake by changing the x-coordinates of its parts
+    // * according to the horizontal velocity and the y - coordinates of its parts
+    //  * according to the vertical veolocity
+
+        //creates the new snakes head
+
+        // add the new head to the beginning of snake body
+
+
+            //increase score
+
+            //display score on screen
+
+            //Generate new food location
+
+            //remove the last part of the body
+
+
+    //returns true of the head of the snake touched another part of the game or any of the walls
+
+
+    //Generates a random number that is a multiple of 10 given a minimum and a maximum number
+    // @param  { number } min - minimum number the radnom number can be   
+    // @param  { number } min - minimum number the radnom number can be 
+
+
+
+    //Creates ransom set of coordinates for the snake food. 
+
+        //generate a random number the food x-coordinate
+
+        //generate a random number the food y-coordinate
+
+        //if the new food location is where the snake property currently is, generate a new location
+
+
+    //CREATING AND DRAWING THE SNAKE  
+    // to display the snake on the canvas, we can write a function to draw a rectangle for each pair of coordinates
+
+        //loop through the snake parts drawing each part on canvas
+
+
+    //Draws a part of the snake on canvas
+    //@param { object } snakePart - coordinates where tha part should be drawn
+
+        //set the color of the snake 
+
+        //set the border colour of the snake 
+
+        //Draw  filled rectangle to represent the snake a the coordinates
+        // the part is located
+
+        //Draw a border around the snake
+
+
+    //changes the vertical and horizonal velocity of the snake accoring to the key that was pressed
+    //direction cannot be swithed to the oppisite direction, to prevent the snake from reversing
+    //for example, if the direction is "right" it cannot become "left"
+    // @param  object  event - the keydown event
+
+        /**
+         * Prevent the snake from reversing
+         * Example scenario:
+         * Snake is moving to the right. User presses down and immediately left
+         * and the snake immediately changes direction without taking a step down first
+         */
+
+</script>
