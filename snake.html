@@ -29,12 +29,11 @@
     </style>
 </body>
 
-
 <script>
     //Constants//
     const GAME_SPEED = 100;
     const CANVAS_BORDER_COLOUR = 'black';
-    const CANVAS_BACKGROUND_COLOUR = 'white';
+    const CANVAS_BACKGROUND_COLOUR = "white";
     const SNAKE_COLOUR = 'lightgreen';
     const SNAKE_BORDER_COLOUR = 'darkgreen';
     const FOOD_COLOUR = 'red';
@@ -54,28 +53,20 @@
 
     //the users score
     let score = 0;
-
     //when set to true the snake is chaning direction
     let changingDirection = false;
-
     //food x coordinate
     let foodX;
-
     //food y coordinate
     let foodY;
-
     // Horizonal velocity
     let dx = 10;
-
     //vertivcal valocity
     let dy = 0;
-
-
     //Get the canvas element using the id gameCanvas we specified earlier. 
     const gameCanvas = document.getElementById('gameCanvas');
     //then return the canvas “2d” context, which means we will be drawing into 2D space.
     const ctx = gameCanvas.getContext('2d');
-    //select the color to fill the canvas
 
 
     //START GAME
@@ -148,7 +139,6 @@
         for (let i = 4; i < snake.length; i++) {
             if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
         }
-
         const hitLeftWall = snake[0].x < 0;
         const hitRightWall = snake[0].x > gameCanvas.width - 10;
         const hitTopWall = snake[0].y < 0;
@@ -216,8 +206,8 @@
          * and the snake immediately changes direction without taking a step down first
          */
 
-        if (changeDirection) return;
-        changeDirection = true;
+        if (changingDirection) return;
+        changingDirection = true;
 
         const keyPressed = event.keyCode;
         const goingUp = dy === -10;
